@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+dist/
+build/
+.nextflow/
+.nextflow.log*
+work/
+results/
+*.sam
+*.bam
+*.fastq
+*.fq
+*.gz
+*.swp
+*~
