@@ -1,50 +1,66 @@
 # proyecto-sam
 
-Análisis de calidad de mapeo para ficheros SAM.
-Cuenta lecturas totales y lecturas con MAPQ = 60.
+Command-line tool to compute MAPQ mapping quality statistics from SAM files.
+Parses aligned reads, counts those with MAPQ = 60, and reports the percentage.
 
-## Requisitos
+## Requirements
 
 - [uv](https://docs.astral.sh/uv/) >= 0.4
 - [Nextflow](https://nextflow.io) >= 23.10
-- Java 17–25
+- Java 17–25 (required by Nextflow)
 
-## Instalación
+## Installation
+
 ```bash
 git clone https://github.com/davquecol/proyecto-sam.git
 cd proyecto-sam
 uv sync
 ```
 
-## Uso
+## Usage
 
-### Directo con uv
+### Directly with uv
+
 ```bash
-uv run main.py /ruta/al/fichero.sam
+uv run main.py /path/to/file.sam
 ```
 
-### Con Nextflow
+With machine-readable output:
+
 ```bash
-nextflow run main.nf --sam /ruta/al/fichero.sam
+uv run main.py /path/to/file.sam --tsv results.tsv
 ```
 
-## Estructura
+### Via the Nextflow pipeline
 
-| Archivo | Descripción |
+```bash
+nextflow run main.nf --sam /path/to/file.sam
+```
+
+## Project structure
+
+| File | Description |
 |---|---|
-| `main.py` | Script principal de análisis |
-| `main.nf` | Pipeline Nextflow |
-| `pyproject.toml` | Metadatos y dependencias (uv) |
-| `uv.lock` | Lockfile reproducible |
+| `main.py` | Main analysis script |
+| `main.nf` | Nextflow pipeline |
+| `pyproject.toml` | Project metadata and dependencies |
+| `uv.lock` | Reproducible dependency lockfile |
+| `LICENSE` | MIT licence |
+| `CITATION.cff` | Citation metadata |
 
-## Salida esperada
+## Expected output
+
 ```
-        Análisis SAM · Col0.1.sam
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
-┃ Métrica                     ┃   Valor ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
-│ Total de lecturas alineadas │ 203,807 │
-│ Lecturas con MAPQ = 60      │ 196,184 │
-│ Porcentaje                  │   96.3% │
-└─────────────────────────────┴─────────┘
+    SAM Analysis · Col0.1.sam
+┏━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━┓
+┃ Metric               ┃   Value ┃
+┡━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━┩
+│ Total aligned reads  │ 203,807 │
+│ Reads with MAPQ = 60 │ 196,184 │
+│ Percentage           │   96.3% │
+└──────────────────────┴─────────┘
 ```
+
+## Licence
+
+MIT — see [LICENSE](LICENSE) for details.
