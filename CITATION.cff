@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "proyecto-sam: MAPQ mapping quality statistics from SAM files"
+version: 1.0.0
+date-released: 2026-03-31
+authors:
+  - family-names: Quevedo
+    given-names: David
+    affiliation: "Estación Biológica de Doñana, CSIC"
+repository-code: "https://github.com/davquecol/proyecto-sam"
+license: MIT
+keywords:
+  - bioinformatics
+  - SAM
+  - MAPQ
+  - RNA-seq
+  - alignment
+abstract: >
+  Command-line tool that parses SAM files and reports the total number
+  of aligned reads, the number of reads with MAPQ = 60, and the
+  corresponding percentage. Includes a Nextflow pipeline wrapper and
+  machine-readable TSV output for FAIR data interoperability.

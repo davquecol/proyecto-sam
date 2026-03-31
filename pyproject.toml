@@ -1,9 +1,16 @@
 [project]
 name = "proyecto-sam"
-version = "0.1.0"
-description = "Add your description here"
+version = "1.0.0"
+description = "Command-line tool to compute MAPQ=60 mapping statistics from SAM files"
+authors = [{ name = "David Quevedo", email = "davquecol@outlook.es" }]
 readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["bioinformatics", "SAM", "MAPQ", "alignment", "RNA-seq"]
 requires-python = ">=3.11"
-dependencies = [
-    "rich>=14.3.3",
-]
+dependencies = ["rich>=13.0"]
+
+[project.urls]
+Repository = "https://github.com/davquecol/proyecto-sam"
+
+[project.scripts]
+proyecto-sam = "main:main"
